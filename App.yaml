@@ -1,0 +1,13 @@
+name: expert-network-saas
+region: nyc
+services:
+  - name: web
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    http_port: 8080
+    build_command: npm install
+    run_command: npm start
+    github:
+      branch: main
+      repo: expertnetworkconsultingfirm/Digital-development-
+
