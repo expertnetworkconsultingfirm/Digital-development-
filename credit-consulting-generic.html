@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Credit Consulting | Your FICO Foundation. Built for Capital.</title>
+<meta name="description" content="Compliance-first credit consulting using the Metro2 Solutions Platform. Flat-rate $400/$800. Call (443) 459-1950."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ── Reset ───────────────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --primary:#0d1a2e;
+  --primary-dark:#071020;
+  --primary-mid:#0f2035;
+  --accent:#2ec4b6;
+  --accent-light:#4dd4c8;
+  --gold:#D4A574;
+  --gold-light:#e0bb96;
+  --cream:#F4EFE0;
+  --off-white:#FAF8F2;
+  --white:#ffffff;
+  --text-dark:#1C1C1C;
+  --text-mid:#445566;
+  --text-muted:#8899aa;
+  --border:rgba(255,255,255,.08);
+}
+body{font-family:'Jost',sans-serif;color:var(--text-dark);background:var(--white);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block}
+
+/* ── Typography ──────────────────────────────────────────────────────────── */
+.serif{font-family:'Cormorant Garamond',serif}
+.eyebrow{font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;font-weight:600}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,7vw,6.5rem);font-weight:700;line-height:.95;letter-spacing:-2px}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:700;line-height:1.05}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600}
+p{line-height:1.75;font-weight:300}
+
+/* ── Keyframes ───────────────────────────────────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollLeft{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+.fu{animation:fadeUp .7s ease both}
+.fu-1{animation-delay:.1s}.fu-2{animation-delay:.25s}.fu-3{animation-delay:.4s}
+.fu-4{animation-delay:.55s}.fu-5{animation-delay:.7s}
+
+/* ── ANNOUNCEMENT BANNER #top ────────────────────────────────────────────── */
+#top{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:var(--primary-dark);
+  padding:.5rem 1.5rem;
+  display:flex;align-items:center;justify-content:center;gap:1.25rem;
+  font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  border-bottom:1px solid var(--border);
+}
+.pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 1.6s infinite;flex-shrink:0}
+.pulse-dot:nth-child(3){animation-delay:.5s}
+#top span{color:rgba(255,255,255,.55)}
+#top a{color:var(--accent);font-weight:700;border-bottom:1px solid rgba(46,196,182,.3);transition:color .2s}
+#top a:hover{color:var(--accent-light)}
+@media(max-width:600px){#top{font-size:.6rem;gap:.75rem;padding:.45rem .75rem;flex-wrap:wrap;justify-content:center;line-height:1.5}}
+
+/* ── HEADER #header ──────────────────────────────────────────────────────── */
+#header{
+  position:sticky;top:30px;z-index:900;
+  background:rgba(7,16,32,.97);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  height:66px;padding:0 2rem;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+}
+.h-nav{display:flex;gap:1.75rem;align-items:center}
+.h-nav a{font-size:.72rem;letter-spacing:.14em;color:rgba(255,255,255,.55);transition:color .2s}
+.h-nav a:hover{color:var(--accent)}
+.h-logo{grid-column:2;display:flex;align-items:center;justify-content:center}
+.h-logo-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;font-weight:700;color:var(--white);
+  letter-spacing:.04em;
+  display:flex;flex-direction:column;align-items:center;line-height:1.15;
+}
+.h-logo-text .sub{font-size:.58rem;letter-spacing:.32em;color:var(--accent);font-family:'Jost',sans-serif;font-weight:600}
+.h-right{display:flex;justify-content:flex-end}
+.h-phone{background:var(--accent);color:var(--primary);padding:.48rem 1.15rem;border-radius:4px;font-size:.75rem;font-weight:700;letter-spacing:.08em;transition:background .2s;white-space:nowrap}
+.h-phone:hover{background:var(--accent-light)}
+@media(max-width:768px){
+  #header{grid-template-columns:auto 1fr;top:34px}
+  .h-logo{grid-column:1;justify-content:flex-start}
+  .h-right{grid-column:2}
+  .h-nav{display:none}
+}
+
+/* ── HERO #hero ──────────────────────────────────────────────────────────── */
+#hero{
+  padding-top:96px;background:var(--primary);
+  min-height:100vh;display:flex;align-items:center;
+  position:relative;overflow:hidden;
+}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:48px 48px}
+.hero-c1{position:absolute;top:-150px;right:-80px;width:640px;height:640px;border-radius:50%;border:1px solid rgba(46,196,182,.12);pointer-events:none}
+.hero-c2{position:absolute;top:-60px;right:40px;width:400px;height:400px;border-radius:50%;border:1px solid rgba(46,196,182,.07);pointer-events:none}
+.hero-c3{position:absolute;bottom:-120px;left:-80px;width:480px;height:480px;border-radius:50%;border:1px solid rgba(212,165,116,.06);pointer-events:none}
+.hero-bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(to bottom,var(--accent),var(--gold),var(--accent))}
+.hero-inner{max-width:1280px;margin:0 auto;padding:4rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;width:100%;position:relative;z-index:1}
+.hero-eyebrow{color:var(--accent);margin-bottom:1.2rem}
+.hero-h1{color:var(--white)}
+.hero-h1 .tw{color:var(--accent)}
+.hero-sub{color:rgba(255,255,255,.65);font-size:1.1rem;margin-top:1.2rem}
+.hero-gold{color:var(--gold);font-weight:500;font-size:1.1rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin:2.2rem 0}
+.btn-p{background:var(--accent);color:var(--primary);padding:.82rem 1.9rem;border-radius:4px;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:all .2s;display:inline-block}
+.btn-p:hover{background:var(--accent-light);transform:translateY(-2px)}
+.btn-s{border:1px solid rgba(255,255,255,.28);color:var(--white);padding:.82rem 1.9rem;border-radius:4px;font-size:.78rem;font-weight:500;letter-spacing:.08em;transition:all .2s;display:inline-block}
+.btn-s:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.hero-badges{display:flex;flex-wrap:wrap;gap:.6rem}
+.hbadge{border:1px solid rgba(255,255,255,.14);padding:.38rem .88rem;border-radius:20px;font-size:.62rem;letter-spacing:.14em;color:rgba(255,255,255,.6)}
+
+/* Hero right: dashboard */
+.dash-wrap{width:100%;max-width:420px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.5)}
+.dash-chrome{background:rgba(255,255,255,.07);padding:.65rem 1rem;display:flex;align-items:center;gap:.45rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.dc{width:9px;height:9px;border-radius:50%}
+.dash-label{flex:1;text-align:center;font-size:.58rem;letter-spacing:.22em;color:rgba(255,255,255,.3)}
+.dash-body{padding:1.5rem}
+.score-wrap{text-align:center;margin-bottom:1.2rem}
+.score-ring{width:88px;height:88px;border-radius:50%;margin:0 auto 6px;background:conic-gradient(var(--accent) 0deg 230deg,rgba(255,255,255,.08) 230deg 360deg);display:flex;align-items:center;justify-content:center}
+.score-in{width:68px;height:68px;border-radius:50%;background:var(--primary);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.score-n{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--white);line-height:1}
+.score-l{font-size:.5rem;color:var(--accent);letter-spacing:.15em}
+.score-sub-lbl{font-size:.58rem;color:rgba(255,255,255,.35);letter-spacing:.18em}
+.d-sec{font-size:.56rem;letter-spacing:.22em;color:var(--accent);margin-bottom:.7rem;padding-bottom:.4rem;border-bottom:1px solid rgba(46,196,182,.3)}
+.d-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.d-name{font-size:.68rem;color:rgba(255,255,255,.72)}
+.d-badge{font-size:.52rem;padding:.22rem .5rem;border-radius:3px;font-weight:700;letter-spacing:.1em}
+.db-green{background:rgba(46,196,182,.15);color:var(--accent)}
+.db-gold{background:rgba(212,165,116,.15);color:var(--gold)}
+.db-light{background:rgba(46,196,182,.1);color:var(--accent-light)}
+.d-footer{margin-top:1rem;padding:.65rem;border-radius:6px;background:rgba(46,196,182,.1);text-align:center;font-size:.58rem;letter-spacing:.15em;color:var(--accent);font-weight:700}
+
+/* Hero stats */
+.hero-stats{
+  max-width:1280px;margin:0 auto;padding:2rem 5rem;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(255,255,255,.07);position:relative;z-index:1;
+}
+.stat-v{font-family:'Cormorant Garamond',serif;font-size:1.75rem;color:var(--accent);font-weight:700}
+.stat-k{font-size:.58rem;color:rgba(255,255,255,.35);letter-spacing:.2em;margin-top:.2rem}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:3rem;padding:3rem 1.5rem}
+  .dash-wrap{display:none}
+  .hero-stats{grid-template-columns:repeat(2,1fr);padding:1.5rem 1.5rem 3rem}
+}
+
+/* ── TICKER ──────────────────────────────────────────────────────────────── */
+.ticker-outer{background:var(--primary-dark);padding:.85rem 0;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.ticker-track{display:flex;white-space:nowrap;animation:scrollLeft 28s linear infinite}
+.ticker-track:hover{animation-play-state:paused}
+.tick-item{display:inline-flex;align-items:center;gap:1.2rem;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;padding:0 1.2rem;flex-shrink:0}
+.tick-sep{color:var(--gold);opacity:.65}
+
+/* ── CTA BANNER #cta-banner ──────────────────────────────────────────────── */
+#cta-banner{background:var(--primary);padding:5rem 2rem;position:relative;overflow:hidden}
+#cta-banner::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(46,196,182,.06),transparent 70%)}
+.cta-in{max-width:820px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.cta-in .eyebrow{color:var(--accent);margin-bottom:1rem}
+.cta-in h2{color:var(--white);margin-bottom:.75rem}
+.cta-in p{color:rgba(255,255,255,.55);font-size:.95rem;margin-bottom:2.2rem}
+.cta-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-bottom:2.5rem}
+.cpill{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:.45rem 1.15rem;border-radius:30px;font-size:.7rem;letter-spacing:.1em;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:.45rem}
+.cpill .pip{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.btn-gold{background:var(--gold);color:var(--primary);padding:.95rem 2.4rem;border-radius:4px;font-size:.8rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;display:inline-block;transition:all .2s}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 10px 28px rgba(212,165,116,.3)}
+
+/* ── BENEFITS #benefits ──────────────────────────────────────────────────── */
+#benefits{background:var(--white);padding:6rem 2rem}
+.sec-hdr{text-align:center;margin-bottom:3.5rem}
+.sec-hdr .eyebrow{color:var(--accent);margin-bottom:.7rem}
+.sec-hdr h2{color:var(--primary)}
+.sec-hdr p{color:var(--text-mid);max-width:520px;margin:.7rem auto 0;font-size:.92rem}
+.ben-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.ben-card{background:var(--off-white);border-radius:12px;padding:2rem;border:1px solid transparent;transition:all .25s;cursor:default}
+.ben-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 32px rgba(46,196,182,.1)}
+.ben-icon{width:48px;height:48px;border-radius:10px;background:var(--primary);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.25rem}
+.ben-card h3{color:var(--primary);margin-bottom:.55rem;font-size:1.2rem}
+.ben-card p{color:var(--text-mid);font-size:.88rem;line-height:1.72}
+.ben-footer{text-align:center;margin-top:2.8rem;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--primary);font-weight:600}
+.ben-footer span{color:var(--accent)}
+
+/* ── PRODUCTS #products ──────────────────────────────────────────────────── */
+#products{background:var(--off-white);padding:6rem 2rem}
+.prod-hdr{max-width:1100px;margin:0 auto 3.5rem}
+.prod-hdr .eyebrow{color:var(--accent);margin-bottom:.5rem}
+.prod-hdr h2{color:var(--primary);margin-bottom:.5rem}
+.prod-hdr p{color:var(--text-mid);font-size:.9rem}
+.prod-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.prod-card{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(13,26,46,.07);transition:transform .25s,box-shadow .25s}
+.prod-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(13,26,46,.13)}
+.prod-img{height:220px;background:var(--primary);display:flex;align-items:center;justify-content:center;padding:24px;position:relative;overflow:hidden}
+.prod-tag{position:absolute;top:12px;right:12px;padding:.28rem .65rem;border-radius:4px;font-size:.58rem;letter-spacing:.15em;font-weight:700}
+.prod-body{padding:1.8rem}
+.prod-tier{margin-bottom:.6rem}
+.prod-price{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:var(--primary);line-height:1;margin-bottom:.25rem}
+.prod-rate{font-size:.78rem;color:var(--text-muted);margin-bottom:.9rem}
+.prod-line{width:28px;height:2px;margin-bottom:.9rem}
+.prod-best{font-size:.6rem;letter-spacing:.22em;color:var(--text-muted);margin-bottom:.6rem}
+.prod-feats li{font-size:.86rem;color:var(--text-mid);padding:.42rem 0;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:.65rem}
+.prod-feats li .arr{color:var(--accent)}
+.btn-sms{display:block;text-align:center;padding:.88rem;border-radius:6px;font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:all .2s;margin-top:1.4rem}
+.btn-teal{background:var(--accent);color:var(--primary)}.btn-teal:hover{background:var(--accent-light)}
+.btn-gold2{background:var(--gold);color:var(--primary)}.btn-gold2:hover{background:var(--gold-light)}
+.prod-pay{max-width:1100px;margin:2.5rem auto 0;background:var(--primary);border-radius:12px;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.pp-lbl{font-size:.62rem;letter-spacing:.22em;color:var(--accent);margin-bottom:.3rem}
+.pp-val{font-size:.85rem;color:rgba(255,255,255,.7)}
+.pp-btns{display:flex;gap:.7rem;flex-wrap:wrap}
+.pp-pill{padding:.46rem 1.15rem;border-radius:24px;border:1px solid rgba(255,255,255,.18);font-size:.72rem;color:rgba(255,255,255,.7);transition:all .2s}
+.pp-pill:hover{border-color:var(--accent);color:var(--accent)}
+@media(max-width:768px){.prod-grid{grid-template-columns:1fr}.prod-pay{flex-direction:column;text-align:center}}
+
+/* ── HOW IT WORKS #how-it-works ──────────────────────────────────────────── */
+#how-it-works{background:var(--white);padding:6rem 2rem}
+.hiw-in{max-width:1100px;margin:0 auto}
+.hiw-hdr{margin-bottom:2.5rem}
+.hiw-hdr .eyebrow{color:var(--accent);margin-bottom:.6rem}
+.hiw-section{background:var(--primary);border-radius:16px;padding:3rem}
+.hiw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative}
+.hiw-line{position:absolute;top:27px;left:10%;right:10%;height:1px;background:linear-gradient(to right,rgba(46,196,182,.35),rgba(212,165,116,.35))}
+.step-c{position:relative;z-index:1}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--primary);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--accent);font-weight:700;margin-bottom:1.4rem}
+.step-c:last-child .step-num{background:linear-gradient(135deg,var(--gold),var(--accent));border-color:var(--gold);color:var(--primary)}
+.step-c h3{color:var(--white);font-size:1.15rem;margin-bottom:.55rem}
+.step-c p{color:rgba(255,255,255,.58);font-size:.84rem;line-height:1.7}
+.hiw-cta{margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.hiw-cta-t h3{color:var(--white);margin-bottom:.2rem;font-size:1.2rem}
+.hiw-cta-t p{color:rgba(255,255,255,.5);font-size:.86rem}
+.btn-acc{background:var(--accent);color:var(--primary);padding:.82rem 1.9rem;border-radius:4px;font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:all .2s;white-space:nowrap}
+.btn-acc:hover{background:var(--accent-light);transform:translateY(-2px)}
+@media(max-width:768px){.hiw-grid{grid-template-columns:1fr 1fr}.hiw-line{display:none}}
+@media(max-width:480px){.hiw-grid{grid-template-columns:1fr}}
+
+/* ── PAYMENT #payment ────────────────────────────────────────────────────── */
+#payment{background:var(--off-white);padding:5rem 2rem;text-align:center}
+.pay-in{max-width:680px;margin:0 auto}
+.pay-in .eyebrow{color:var(--accent);margin-bottom:.7rem}
+.pay-in h2{color:var(--primary);margin-bottom:.75rem}
+.pay-in p{color:var(--text-mid);font-size:.92rem;margin-bottom:2.2rem}
+.pay-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-bottom:2rem}
+.pay-btn{padding:.65rem 1.5rem;border-radius:40px;font-size:.76rem;font-weight:600;letter-spacing:.07em;border:1px solid rgba(13,26,46,.25);background:var(--white);color:var(--primary);transition:all .2s;cursor:pointer;display:inline-block}
+.pay-btn:hover,.pay-btn.act{background:var(--primary);color:var(--white);border-color:var(--primary)}
+.pay-note{font-size:.75rem;color:var(--text-muted)}
+
+/* ── TESTIMONIALS ────────────────────────────────────────────────────────── */
+#testimonials{background:var(--primary);padding:5rem 2rem;position:relative;overflow:hidden}
+#testimonials::before{content:'"';position:absolute;top:-50px;left:30px;font-family:'Cormorant Garamond',serif;font-size:22rem;font-weight:700;color:rgba(46,196,182,.04);line-height:1;user-select:none;pointer-events:none}
+.test-in{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.test-lbl{display:flex;align-items:center;gap:1rem;margin-bottom:2.8rem}
+.test-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.test-card{border-left:3px solid var(--accent);padding-left:1.8rem}
+.test-card:last-child{border-color:var(--gold)}
+.test-stat{float:right;font-family:'Cormorant Garamond',serif;font-size:2rem;color:rgba(255,255,255,.14);font-weight:700}
+.test-q{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-style:italic;color:rgba(255,255,255,.88);line-height:1.72;margin-bottom:1.4rem}
+.test-name{font-size:.82rem;font-weight:600;margin-bottom:.2rem}
+.test-loc{font-size:.7rem;color:rgba(255,255,255,.38);letter-spacing:.1em}
+.test-bar{margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;align-items:center}
+.test-bar-l{font-size:.67rem;letter-spacing:.18em;color:rgba(255,255,255,.3)}
+.test-bar-r{font-size:.86rem;color:var(--accent);font-weight:500}
+@media(max-width:768px){.test-grid{grid-template-columns:1fr}}
+
+/* ── TRUST BAR ───────────────────────────────────────────────────────────── */
+.trust-bar{background:var(--primary-mid);padding:1.5rem 2rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.trust-bar-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr)}
+.tbi{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.9rem .5rem;text-align:center;border-left:1px solid var(--border)}
+.tbi:first-child{border-left:none}
+.tbi-icon{font-size:1.2rem;margin-bottom:.45rem;height:22px;display:flex;align-items:center;justify-content:center}
+.tbi-lbl{font-size:.58rem;letter-spacing:.14em;color:rgba(255,255,255,.44);line-height:1.45}
+@media(max-width:768px){.trust-bar-in{grid-template-columns:repeat(3,1fr)}.tbi{border-left:none;border-bottom:1px solid var(--border)}}
+
+/* ── STORY #story ────────────────────────────────────────────────────────── */
+#story{background:var(--primary);padding:6rem 2rem;border-top:1px solid var(--border)}
+.story-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:center}
+.story-left{display:flex;flex-direction:column;align-items:flex-start}
+.story-av{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,rgba(46,196,182,.3),rgba(212,165,116,.3));border:2px solid rgba(46,196,182,.5);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;color:var(--white);margin-bottom:1.5rem}
+.story-name{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:.45rem}
+.story-title{font-size:.65rem;letter-spacing:.3em;color:var(--accent);margin-bottom:.25rem}
+.story-co{font-size:.7rem;color:rgba(255,255,255,.38);letter-spacing:.18em}
+.story-contacts{display:flex;gap:.75rem;margin-top:1.8rem;flex-wrap:wrap}
+.s-cbtn{padding:.5rem 1.2rem;border-radius:24px;border:1px solid rgba(255,255,255,.18);font-size:.72rem;color:rgba(255,255,255,.65);transition:all .2s}
+.s-cbtn:hover{border-color:var(--accent);color:var(--accent)}
+.story-right .eyebrow{color:var(--gold);margin-bottom:1.4rem}
+.story-bio{font-size:.96rem;color:rgba(255,255,255,.77);line-height:1.85;margin-bottom:1.4rem}
+.story-bio a{color:var(--accent);border-bottom:1px solid rgba(46,196,182,.3)}
+.story-q{border-left:3px solid var(--gold);padding:.7rem 1.4rem;margin:1.5rem 0;font-family:'Cormorant Garamond',serif;font-size:1.12rem;font-style:italic;color:rgba(255,255,255,.82);line-height:1.6}
+.story-stats{margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.07);display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.ss-v{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--accent);font-weight:700}
+.ss-l{font-size:.58rem;color:rgba(255,255,255,.36);letter-spacing:.18em;margin-top:.22rem}
+@media(max-width:768px){.story-in{grid-template-columns:1fr}.story-left{align-items:center;text-align:center}}
+
+/* ── SECONDARY #business-credit ─────────────────────────────────────────── */
+#business-credit{background:var(--primary-dark);padding:6rem 2rem;position:relative;overflow:hidden}
+#business-credit::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(212,165,116,.04),transparent 70%);pointer-events:none}
+.sec2-in{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.new-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(212,165,116,.12);border:1px solid rgba(212,165,116,.3);padding:.38rem 1rem;border-radius:20px;font-size:.65rem;letter-spacing:.2em;color:var(--gold);font-weight:600;margin-bottom:2rem}
+.new-badge .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:pulse 1.5s infinite}
+.sec2-hdr{margin-bottom:3rem}
+.sec2-hdr h2{color:var(--white);margin-bottom:.65rem}
+.sec2-hdr p{color:rgba(255,255,255,.55);max-width:520px;font-size:.92rem}
+.sec2-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.s2c{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;overflow:hidden;transition:all .25s}
+.s2c:hover{border-color:rgba(212,165,116,.35);transform:translateY(-3px)}
+.s2c-top{height:3px}
+.s2c-body{padding:1.7rem}
+.s2c .eyebrow{margin-bottom:.7rem}
+.s2c h3{color:var(--white);font-size:1.25rem;margin-bottom:.9rem}
+.s2c li{font-size:.84rem;color:rgba(255,255,255,.65);padding:.32rem 0;display:flex;align-items:center;gap:.55rem}
+.s2c li::before{content:'·';color:var(--gold);font-size:1.1rem}
+.s2c ul{margin-bottom:1.4rem}
+.btn-out{display:block;text-align:center;padding:.78rem;border-radius:6px;font-size:.73rem;font-weight:700;letter-spacing:.1em;transition:all .2s}
+.btn-out-g{border:1px solid rgba(212,165,116,.35);color:var(--gold)}.btn-out-g:hover{background:var(--gold);color:var(--primary)}
+.btn-out-t{border:1px solid rgba(46,196,182,.35);color:var(--accent)}.btn-out-t:hover{background:var(--accent);color:var(--primary)}
+@media(max-width:768px){.sec2-cards{grid-template-columns:1fr}}
+
+/* ── FOOTER #footer ──────────────────────────────────────────────────────── */
+#footer{background:var(--primary-dark);padding:4rem 2rem 2rem;border-top:1px solid var(--border)}
+.foot-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;padding-bottom:3rem;margin-bottom:2rem;border-bottom:1px solid var(--border)}
+.foot-brand .bn{font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:var(--white);font-weight:700;line-height:1.2;margin-bottom:.3rem}
+.foot-brand .bt{font-size:.62rem;letter-spacing:.2em;color:var(--accent)}
+.foot-brand p{color:rgba(255,255,255,.44);font-size:.8rem;margin-top:.65rem;line-height:1.65;max-width:250px}
+.foot-col h4{font-size:.64rem;letter-spacing:.25em;color:var(--accent);margin-bottom:.9rem}
+.foot-col ul{display:flex;flex-direction:column;gap:.55rem}
+.foot-col li a{font-size:.8rem;color:rgba(255,255,255,.5);transition:color .2s}
+.foot-col li a:hover{color:var(--accent)}
+.foot-disc{max-width:1100px;margin:0 auto;font-size:.7rem;color:rgba(255,255,255,.28);line-height:1.7}
+.foot-disc strong{color:rgba(255,255,255,.42)}
+@media(max-width:768px){.foot-grid{grid-template-columns:1fr;gap:2rem}}
+</style>
+</head>
+<body>
+
+<!-- ══ ANNOUNCEMENT BANNER ════════════════════════════════════════════════ -->
+<div id="top">
+  <div class="pulse-dot"></div>
+  <span>Now accepting new clients —</span>
+  <a href="#business-credit">Business Credit Prep available</a>
+  <span>·</span>
+  <a href="sms:+14434591950?body=Hi%2C%20I%27d%20like%20to%20speak%20with%20a%20consultant%20about%20my%20credit%20profile%20and%20funding%20goals.%20Can%20we%20schedule%20a%20time%20to%20connect%3F">Speak with a Consultant → (443) 459-1950</a>
+  <div class="pulse-dot"></div>
+</div>
+
+<!-- ══ HEADER ════════════════════════════════════════════════════════════ -->
+<header id="header">
+  <nav class="h-nav">
+    <a href="#benefits">Services</a>
+    <a href="#products">Programs</a>
+    <a href="#how-it-works">Process</a>
+    <a href="#story">About</a>
+  </nav>
+  <div class="h-logo">
+    <div class="h-logo-text">
+      <span>Credit Consulting</span>
+      <span class="sub">Metro2 Solutions Platform</span>
+    </div>
+  </div>
+  <div class="h-right">
+    <a class="h-phone" href="tel:+14434591950">(443) 459-1950</a>
+  </div>
+</header>
+
+<!-- ══ HERO ═══════════════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-c1"></div>
+  <div class="hero-c2"></div>
+  <div class="hero-c3"></div>
+  <div class="hero-bar"></div>
+  <div style="width:100%">
+    <div class="hero-inner">
+      <!-- Left -->
+      <div>
+        <p class="eyebrow hero-eyebrow fu fu-1">Compliance-First · Maryland, USA</p>
+        <h1 class="hero-h1 fu fu-2">Credit<br><span class="tw">Consulting.</span></h1>
+        <p class="hero-sub fu fu-3">Your FICO Foundation.</p>
+        <p class="hero-gold fu fu-3">Built for Capital.</p>
+        <div class="hero-btns fu fu-4">
+          <a class="btn-p" href="#products">View Programs</a>
+          <a class="btn-s" href="#benefits">Learn More</a>
+        </div>
+        <div class="hero-badges fu fu-5">
+          <span class="hbadge">Metro2 Verified</span>
+          <span class="hbadge">Compliance-First</span>
+          <span class="hbadge">FCRA Expertise</span>
+          <span class="hbadge">Confidential</span>
+        </div>
+      </div>
+      <!-- Right: Dashboard Mockup -->
+      <div style="display:flex;justify-content:center;align-items:center" class="fu fu-3">
+        <div class="dash-wrap">
+          <div class="dash-chrome">
+            <div class="dc" style="background:#ff5f57;opacity:.75"></div>
+            <div class="dc" style="background:#febc2e;opacity:.75"></div>
+            <div class="dc" style="background:#28c840;opacity:.75"></div>
+            <div class="dash-label">CREDIT PROFILE ANALYSIS</div>
+          </div>
+          <div class="dash-body">
+            <div class="score-wrap">
+              <div class="score-ring">
+                <div class="score-in">
+                  <div class="score-n">720</div>
+                  <div class="score-l">FICO</div>
+                </div>
+              </div>
+              <div class="score-sub-lbl">REMEDIATED SCORE</div>
+            </div>
+            <div class="d-sec">TRADELINE REVIEW — METRO2 COMPLIANCE</div>
+            <div class="d-row"><span class="d-name">Collection — Medical 2019</span><span class="d-badge db-green">RESOLVED</span></div>
+            <div class="d-row"><span class="d-name">Late Payment — Auto 2020</span><span class="d-badge db-green">RESOLVED</span></div>
+            <div class="d-row"><span class="d-name">Judgment — Civil 2018</span><span class="d-badge db-gold">PENDING</span></div>
+            <div class="d-row"><span class="d-name">Credit Utilization</span><span class="d-badge db-light">OPTIMIZED</span></div>
+            <div class="d-footer">✓ METRO2 COMPLIANCE VERIFIED</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Stats row -->
+    <div class="hero-stats fu fu-5">
+      <div><div class="stat-v">Metro2</div><div class="stat-k">Platform</div></div>
+      <div><div class="stat-v">90–120</div><div class="stat-k">Day Results</div></div>
+      <div><div class="stat-v">$400/$800</div><div class="stat-k">Flat-Rate</div></div>
+      <div><div class="stat-v">5-Month</div><div class="stat-k">Contract</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TICKER ══════════════════════════════════════════════════════════════ -->
+<div class="ticker-outer" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="tick-item">Metro2 Solutions Platform<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Compliance-First Consulting<span class="tick-sep">✦</span></span>
+    <span class="tick-item">90–120 Day Remediation<span class="tick-sep">✦</span></span>
+    <span class="tick-item">FICO Foundation Architecture<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Professional Credit Strategy<span class="tick-sep">✦</span></span>
+    <span class="tick-item">No Volume Dispute Letters<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Forensic Data Audits<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Credit Consulting<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Metro2 Solutions Platform<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Compliance-First Consulting<span class="tick-sep">✦</span></span>
+    <span class="tick-item">90–120 Day Remediation<span class="tick-sep">✦</span></span>
+    <span class="tick-item">FICO Foundation Architecture<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Professional Credit Strategy<span class="tick-sep">✦</span></span>
+    <span class="tick-item">No Volume Dispute Letters<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Forensic Data Audits<span class="tick-sep">✦</span></span>
+    <span class="tick-item">Credit Consulting<span class="tick-sep">✦</span></span>
+  </div>
+</div>
+
+<!-- ══ CTA BANNER ══════════════════════════════════════════════════════════ -->
+<section id="cta-banner">
+  <div class="cta-in">
+    <p class="eyebrow">Free 10-Minute Consult</p>
+    <h2>Is Your Credit<br>Lender-Ready?</h2>
+    <p>Connect with a consultant — we'll review your profile and map out a strategy in one conversation.</p>
+    <div class="cta-pills">
+      <div class="cpill"><div class="pip"></div>Forensic Metro2 Audit Included</div>
+      <div class="cpill"><div class="pip"></div>Flat-Rate: $400 or $800</div>
+      <div class="cpill"><div class="pip"></div>5-Month Structured Contract</div>
+      <div class="cpill"><div class="pip"></div>No Volume Dispute Letters</div>
+    </div>
+    <a class="btn-gold" href="sms:+14434591950?body=Hi%2C%20I%27d%20like%20to%20speak%20with%20a%20consultant%20about%20my%20credit%20profile%20and%20funding%20goals.%20Can%20we%20schedule%20a%20time%20to%20connect%3F">
+      Speak with a Consultant → (443) 459-1950
+    </a>
+  </div>
+</section>
+
+<!-- ══ BENEFITS ════════════════════════════════════════════════════════════ -->
+<section id="benefits">
+  <div class="sec-hdr">
+    <p class="eyebrow">Why Choose Us</p>
+    <h2>The Consulting Difference</h2>
+    <p>We don't blast generic disputes. We engineer lender-ready credit strategies using the Metro2 Solutions Platform.</p>
+  </div>
+  <div class="ben-grid">
+    <div class="ben-card">
+      <div class="ben-icon">🔍</div>
+      <h3>Forensic Data Analysis</h3>
+      <p>We audit Metro2 data strings for reporting non-compliance — not just send dispute letters. Every item is cross-referenced with FCRA § 611 requirements before submission.</p>
+    </div>
+    <div class="ben-card">
+      <div class="ben-icon">⚡</div>
+      <h3>90–120 Day Speed</h3>
+      <p>Most remediation is completed within the first 3–4 months of our 5-month structured platform. You'll see real movement — not indefinite waiting and guessing.</p>
+    </div>
+    <div class="ben-card">
+      <div class="ben-icon">🏦</div>
+      <h3>Lender-Ready Focus</h3>
+      <p>We consult you on building a profile that banks, lenders, and underwriters actually approve. A score alone means nothing if your profile can't pass underwriting.</p>
+    </div>
+    <div class="ben-card">
+      <div class="ben-icon">💎</div>
+      <h3>No Forever Subscriptions</h3>
+      <p>Flat-rate pricing with a clear 5-month contract. $400 or $800 — one-time, based on your file complexity. No surprise fees, no recurring charges.</p>
+    </div>
+    <div class="ben-card">
+      <div class="ben-icon">⚙</div>
+      <h3>Metro2 Authority</h3>
+      <p>We use the same data language the bureaus use — Metro2 format — submitting compliance-based challenges that are verifiable and defensible. Not workarounds. Not loopholes.</p>
+    </div>
+    <div class="ben-card">
+      <div class="ben-icon">👤</div>
+      <h3>Direct Professional Access</h3>
+      <p>Your strategy is personally architected by a senior consultant — not a bot, not generic software, not an outsourced team running form letters.</p>
+    </div>
+  </div>
+  <p class="ben-footer">Credit should be a <span>tool</span>, not a barrier.</p>
+</section>
+
+<!-- ══ PRODUCTS ════════════════════════════════════════════════════════════ -->
+<section id="products">
+  <div class="prod-hdr">
+    <p class="eyebrow">Consulting Programs</p>
+    <h2>Our Programs</h2>
+    <p>Flat-rate pricing · Metro2 Solutions Platform · 5-Month Structured Engagement</p>
+  </div>
+  <div class="prod-grid">
+
+    <!-- Standard $400 -->
+    <div class="prod-card">
+      <div class="prod-img">
+        <div class="prod-tag" style="background:rgba(46,196,182,.18);border:1px solid rgba(46,196,182,.35);color:var(--accent)">STANDARD</div>
+        <svg viewBox="0 0 380 190" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="380" height="190" fill="#0a1421" rx="10"/>
+          <rect x="0" y="0" width="380" height="3" fill="#2ec4b6"/>
+          <line x1="0" y1="40" x2="380" y2="40" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="80" x2="380" y2="80" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="120" x2="380" y2="120" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="160" x2="380" y2="160" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="95" y1="0" x2="95" y2="190" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="190" y1="0" x2="190" y2="190" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="285" y1="0" x2="285" y2="190" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <text x="22" y="32" fill="#2ec4b6" font-size="7.5" letter-spacing="4" font-family="Jost,sans-serif" font-weight="600">STANDARD PROGRAM</text>
+          <text x="22" y="82" fill="white" font-size="48" font-family="Georgia,serif" font-weight="700">$400</text>
+          <text x="22" y="100" fill="rgba(255,255,255,0.38)" font-size="11" font-family="Jost,sans-serif">flat-rate · one-time</text>
+          <rect x="22" y="110" width="30" height="2" fill="#2ec4b6" rx="1"/>
+          <text x="22" y="132" fill="rgba(255,255,255,0.72)" font-size="11" font-family="Jost,sans-serif">→  Cleaner credit profiles</text>
+          <text x="22" y="150" fill="rgba(255,255,255,0.72)" font-size="11" font-family="Jost,sans-serif">→  Standard derogatory items</text>
+          <text x="22" y="168" fill="rgba(255,255,255,0.72)" font-size="11" font-family="Jost,sans-serif">→  Score optimization focus</text>
+          <rect x="22" y="180" width="336" height="1" fill="rgba(255,255,255,0.06)"/>
+          <text x="190" y="189" fill="#2ec4b6" font-size="7" letter-spacing="2.5" text-anchor="middle" font-family="Jost,sans-serif" font-weight="600">METRO2 SOLUTIONS PLATFORM</text>
+        </svg>
+      </div>
+      <div class="prod-body">
+        <p class="prod-tier eyebrow" style="color:var(--accent)">Standard Program</p>
+        <div class="prod-price">$400</div>
+        <div class="prod-rate">flat-rate · one-time</div>
+        <div class="prod-line" style="background:var(--accent)"></div>
+        <p class="prod-best eyebrow">Best For</p>
+        <ul class="prod-feats">
+          <li><span class="arr">→</span>Cleaner credit profiles</li>
+          <li><span class="arr">→</span>Standard derogatory items</li>
+          <li><span class="arr">→</span>Score optimization focus</li>
+          <li><span class="arr">→</span>Home &amp; business funding prep</li>
+          <li><span class="arr">→</span>Compliance-First Strategy</li>
+        </ul>
+        <a class="btn-sms btn-teal" href="sms:+14434591950?body=Hi%2C%20I%27m%20looking%20for%20strategic%20guidance%20on%20my%20credit%20profile.%20I%27d%20like%20to%20connect%20with%20a%20consultant%20to%20review%20my%20situation%20and%20discuss%20my%20funding%20goals.">
+          Text to Start — $400 Program
+        </a>
+      </div>
+    </div>
+
+    <!-- Complex $800 -->
+    <div class="prod-card">
+      <div class="prod-img" style="background:linear-gradient(135deg,#0a1421,#0c1f18)">
+        <div class="prod-tag" style="background:rgba(212,165,116,.18);border:1px solid rgba(212,165,116,.35);color:var(--gold)">COMPLEX</div>
+        <svg viewBox="0 0 380 190" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="gg2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#D4A574"/><stop offset="100%" stop-color="#2ec4b6"/></linearGradient></defs>
+          <rect width="380" height="190" fill="#0a1421" rx="10"/>
+          <rect x="0" y="0" width="380" height="3" fill="url(#gg2)"/>
+          <line x1="0" y1="40" x2="380" y2="40" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="80" x2="380" y2="80" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="120" x2="380" y2="120" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="160" x2="380" y2="160" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="95" y1="0" x2="95" y2="190" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="190" y1="0" x2="190" y2="190" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="285" y1="0" x2="285" y2="190" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <text x="22" y="32" fill="#D4A574" font-size="7.5" letter-spacing="4" font-family="Jost,sans-serif" font-weight="600">COMPLEX PROGRAM</text>
+          <text x="22" y="82" fill="white" font-size="48" font-family="Georgia,serif" font-weight="700">$800</text>
+          <text x="22" y="100" fill="rgba(255,255,255,0.38)" font-size="11" font-family="Jost,sans-serif">flat-rate · one-time</text>
+          <rect x="22" y="110" width="30" height="2" fill="#D4A574" rx="1"/>
+          <text x="22" y="132" fill="rgba(255,255,255,0.72)" font-size="11" font-family="Jost,sans-serif">→  Severe derogatory items</text>
+          <text x="22" y="150" fill="rgba(255,255,255,0.72)" font-size="11" font-family="Jost,sans-serif">→  Forensic Metro2 analysis</text>
+          <text x="22" y="168" fill="rgba(255,255,255,0.72)" font-size="11" font-family="Jost,sans-serif">→  Judgments &amp; collections</text>
+          <rect x="22" y="180" width="336" height="1" fill="rgba(255,255,255,0.06)"/>
+          <text x="190" y="189" fill="#D4A574" font-size="7" letter-spacing="2.5" text-anchor="middle" font-family="Jost,sans-serif" font-weight="600">FORENSIC DATA AUDIT INCLUDED</text>
+        </svg>
+      </div>
+      <div class="prod-body">
+        <p class="prod-tier eyebrow" style="color:var(--gold)">Complex Program</p>
+        <div class="prod-price">$800</div>
+        <div class="prod-rate">flat-rate · one-time</div>
+        <div class="prod-line" style="background:var(--gold)"></div>
+        <p class="prod-best eyebrow">Best For</p>
+        <ul class="prod-feats">
+          <li><span class="arr" style="color:var(--gold)">→</span>Severe derogatory items</li>
+          <li><span class="arr" style="color:var(--gold)">→</span>Forensic Metro2 data analysis</li>
+          <li><span class="arr" style="color:var(--gold)">→</span>Judgments &amp; collections</li>
+          <li><span class="arr" style="color:var(--gold)">→</span>High-limit funding readiness</li>
+          <li><span class="arr" style="color:var(--gold)">→</span>Direct consultant access</li>
+        </ul>
+        <a class="btn-sms btn-gold2" href="sms:+14434591950?body=Hi%2C%20I%20have%20some%20complex%20items%20on%20my%20credit%20profile%20and%20would%20like%20expert%20consulting%20guidance.%20Can%20we%20schedule%20a%20time%20to%20talk%20through%20my%20options%3F">
+          Text to Start — $800 Program
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="prod-pay">
+    <div>
+      <div class="pp-lbl">Payment Accepted</div>
+      <div class="pp-val">CashApp · Credit/Debit Card via Invoice</div>
+    </div>
+    <div>
+      <div class="pp-lbl">Both Programs Include</div>
+      <div class="pp-val" style="font-size:.78rem;opacity:.65">5-Month Contract · Direct Consultant Access · Compliance-Based Resolutions</div>
+    </div>
+    <div class="pp-btns">
+      <a class="pp-pill" href="sms:+14434591950?body=Hi%2C%20I%27d%20like%20to%20speak%20with%20a%20consultant%20about%20my%20credit%20profile%20and%20funding%20goals.%20Can%20we%20schedule%20a%20time%20to%20connect%3F">Connect with a Consultant</a>
+      <a class="pp-pill" href="tel:+14434591950">Call (443) 459-1950</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ════════════════════════════════════════════════════════ -->
+<section id="how-it-works">
+  <div class="hiw-in">
+    <div class="hiw-hdr">
+      <p class="eyebrow">The Process</p>
+      <h2 style="color:var(--text-dark);margin-top:.5rem">How It Works</h2>
+    </div>
+    <div class="hiw-section">
+      <div class="hiw-grid">
+        <div class="hiw-line"></div>
+        <div class="step-c">
+          <div class="step-num">01</div>
+          <h3>Forensic Audit</h3>
+          <p>We pull and analyze your credit reports to pinpoint every Metro2 compliance violation across all three bureaus.</p>
+        </div>
+        <div class="step-c">
+          <div class="step-num">02</div>
+          <h3>Strategy &amp; Submission</h3>
+          <p>Your consultant designs a custom plan and submits compliance-based challenges via our Metro2 platform — not generic letters.</p>
+        </div>
+        <div class="step-c">
+          <div class="step-num">03</div>
+          <h3>Active Remediation</h3>
+          <p>Weeks 2–12: intense response handling, furnisher accountability, and dispute management with bureau follow-through.</p>
+        </div>
+        <div class="step-c">
+          <div class="step-num">04</div>
+          <h3>Capital Hand-Off</h3>
+          <p>All compliance-based resolutions verified. Your profile reviewed, optimized, and prepared for funding conversations — home loans, business capital, or high-limit credit.</p>
+        </div>
+      </div>
+      <div class="hiw-cta">
+        <div class="hiw-cta-t">
+          <h3>Ready to start your 5-month journey?</h3>
+          <p>Reach out to schedule your free 10-minute strategy call.</p>
+        </div>
+        <a class="btn-acc" href="sms:+14434591950?body=Hi%2C%20I%27d%20like%20to%20speak%20with%20a%20consultant%20about%20my%20credit%20profile%20and%20funding%20goals.%20Can%20we%20schedule%20a%20time%20to%20connect%3F">
+          Speak with a Consultant → (443) 459-1950
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PAYMENT ════════════════════════════════════════════════════════════ -->
+<section id="payment">
+  <div class="pay-in">
+    <p class="eyebrow">Flexible &amp; Transparent</p>
+    <h2>Payment Options</h2>
+    <p>One-time flat-rate. No hidden fees. No monthly subscriptions. Pay when you're ready to start.</p>
+    <div class="pay-pills">
+      <a class="pay-btn act" href="tel:+14434591950">CashApp — Text for Tag</a>
+      <a class="pay-btn" href="sms:+14434591950?body=Hi%2C%20I%27m%20ready%20to%20move%20forward%20with%20consulting%20services.%20Please%20send%20me%20an%20invoice%20so%20I%20can%20get%20started.">Pay via Invoice — Text Us</a>
+      <a class="pay-btn" href="tel:+14434591950">Credit/Debit by Phone</a>
+      <a class="pay-btn" href="sms:+14434591950?body=Hi%2C%20I%27d%20like%20to%20speak%20with%20a%20consultant%20about%20my%20credit%20profile%20and%20funding%20goals.%20Can%20we%20schedule%20a%20time%20to%20connect%3F">Connect with a Consultant</a>
+    </div>
+    <p class="pay-note">$400 Standard · $800 Complex · Tier confirmed after your free 10-min consult</p>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ════════════════════════════════════════════════════════ -->
+<section id="testimonials">
+  <div class="test-in">
+    <div class="test-lbl">
+      <p class="eyebrow" style="color:var(--accent)">Client Results</p>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-stat">580→720</div>
+        <p class="test-q">"Our consultant turned my 580 into a 720 in 4 months. I finally got approved for my business line of credit. Worth every penny."</p>
+        <div class="test-name" style="color:var(--accent)">Marcus T.</div>
+        <div class="test-loc">Baltimore, MD</div>
+      </div>
+      <div class="test-card" style="border-left-color:var(--gold)">
+        <div class="test-stat" style="color:rgba(212,165,116,.3)">Funded</div>
+        <p class="test-q">"After two companies that promised results and delivered nothing, this consulting process actually moved the needle. The Metro2 approach is a different world."</p>
+        <div class="test-name" style="color:var(--gold)">Jasmine R.</div>
+        <div class="test-loc">Maryland</div>
+      </div>
+    </div>
+    <div class="test-bar">
+      <div class="test-bar-l">Metro2 Solutions Platform · Compliance-First Consulting</div>
+      <div class="test-bar-r">(443) 459-1950</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST BAR ═══════════════════════════════════════════════════════════ -->
+<div class="trust-bar">
+  <div class="trust-bar-in">
+    <div class="tbi"><div class="tbi-icon" style="color:var(--text-muted)">⚙</div><div class="tbi-lbl">Metro2 Solutions<br>Platform</div></div>
+    <div class="tbi"><div class="tbi-icon" style="color:var(--accent)">✓</div><div class="tbi-lbl">Compliance-First<br>Consulting</div></div>
+    <div class="tbi"><div class="tbi-icon" style="color:var(--accent)">§</div><div class="tbi-lbl">FCRA<br>Expertise</div></div>
+    <div class="tbi"><div class="tbi-icon" style="color:var(--gold)">🔒</div><div class="tbi-lbl">Confidential</div></div>
+    <div class="tbi"><div class="tbi-icon" style="color:var(--accent)">◆</div><div class="tbi-lbl">No<br>Subscriptions</div></div>
+    <div class="tbi"><div class="tbi-icon" style="color:var(--gold)">★</div><div class="tbi-lbl">Direct Consultant<br>Access</div></div>
+  </div>
+</div>
+
+<!-- ══ STORY #story ════════════════════════════════════════════════════════ -->
+<section id="story">
+  <div class="story-in">
+    <div class="story-left">
+      <div class="story-av" style="font-size:1.2rem;letter-spacing:.08em">LEAD<br>CONSULTANT</div>
+      <div class="story-name" style="font-size:1.75rem;margin-top:.5rem">Lead Consultant</div>
+      <div class="story-title">Credit Forensics &amp; Funding Prep</div>
+      <div class="story-co">Metro2 Solutions Platform</div>
+      <div class="story-contacts">
+        <a class="s-cbtn" href="tel:+14434591950">(443) 459-1950</a>
+        <a class="s-cbtn" href="sms:+14434591950?body=Hi%2C%20I%27d%20like%20to%20schedule%20an%20initial%20consultation%20to%20discuss%20my%20financial%20profile%20and%20goals.%20What%20times%20are%20you%20available%3F">Schedule a Call</a>
+      </div>
+    </div>
+    <div class="story-right">
+      <p class="eyebrow" style="color:var(--gold)">About the Consultant</p>
+      <p class="story-bio">Our lead consultant brings years of experience in credit forensics and funding preparation, helping hundreds of professionals rebuild their credit profiles using a <a href="#benefits">compliance-first, Metro2-based methodology.</a></p>
+      <p class="story-bio">Our approach is rooted in the belief that credit should be a tool, not a barrier. We move beyond the volume-dispute approach to deliver a structured, transparent consulting engagement that actually prepares clients for capital.</p>
+      <blockquote class="story-q">"Credit should be a tool, not a barrier — we exist to build the FICO foundation that gets you through the door."</blockquote>
+      <div class="story-stats">
+        <div><div class="ss-v">Metro2</div><div class="ss-l">Platform</div></div>
+        <div><div class="ss-v">90–120</div><div class="ss-l">Day Results</div></div>
+        <div><div class="ss-v">Flat-Rate</div><div class="ss-l">Pricing</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECONDARY PRODUCT #business-credit ══════════════════════════════════ -->
+<section id="business-credit">
+  <div class="sec2-in">
+    <div class="new-badge"><div class="dot"></div>New Service Available</div>
+    <div class="sec2-hdr">
+      <h2>Business Credit &amp; Add-On Programs</h2>
+      <p>Expand your funding profile. These services complement your Metro2 consulting contract and are bundled on request.</p>
+    </div>
+    <div class="sec2-cards">
+
+      <div class="s2c">
+        <div class="s2c-top" style="background:var(--gold)"></div>
+        <div class="s2c-body">
+          <p class="eyebrow" style="color:var(--gold)">Add-On Service</p>
+          <h3>Business Credit Prep</h3>
+          <ul>
+            <li>EIN tradeline strategy</li>
+            <li>Dun &amp; Bradstreet profile</li>
+            <li>Net-30 vendor accounts</li>
+            <li>Business FICO® score build</li>
+            <li>SBA funding readiness</li>
+          </ul>
+          <a class="btn-out btn-out-g" href="sms:+14434591950?body=Hi%2C%20I%27m%20interested%20in%20building%20my%20business%20credit%20profile.%20I%27d%20like%20to%20speak%20with%20a%20consultant%20about%20strategy%20and%20what%20steps%20make%20sense%20for%20my%20situation.">Schedule a Consultation</a>
+        </div>
+      </div>
+
+      <div class="s2c">
+        <div class="s2c-top" style="background:linear-gradient(to right,var(--accent),var(--gold))"></div>
+        <div class="s2c-body">
+          <p class="eyebrow" style="color:var(--accent)">Full Suite</p>
+          <h3>Personal + Business Bundle</h3>
+          <ul>
+            <li>Personal Metro2 remediation</li>
+            <li>Business credit foundation</li>
+            <li>Dual-profile strategy</li>
+            <li>Funding readiness review</li>
+            <li>5-Month structured contract</li>
+          </ul>
+          <a class="btn-out btn-out-t" href="sms:+14434591950?body=Hi%2C%20I%27d%20like%20guidance%20on%20both%20my%20personal%20and%20business%20credit%20profiles.%20Can%20I%20schedule%20a%20consultation%20to%20discuss%20a%20comprehensive%20strategy%3F">Discuss Bundle Options</a>
+        </div>
+      </div>
+
+      <div class="s2c">
+        <div class="s2c-top" style="background:var(--accent)"></div>
+        <div class="s2c-body">
+          <p class="eyebrow" style="color:var(--accent)">Free Consult</p>
+          <h3>Not Sure Which Tier?</h3>
+          <ul>
+            <li>Free 10-minute profile review</li>
+            <li>Standard vs. Complex confirmed</li>
+            <li>No commitment required</li>
+            <li>Direct senior consultant access</li>
+            <li>Maryland-based, nationwide service</li>
+          </ul>
+          <a class="btn-out btn-out-t" href="sms:+14434591950?body=Hi%2C%20I%27d%20like%20to%20schedule%20an%20initial%20call%20to%20discuss%20my%20credit%20profile%20and%20financial%20goals.%20When%20are%20you%20available%20for%20a%20brief%20consultation%3F">Schedule a Strategy Call</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="bn">Credit Consulting</div>
+      <div class="bt">Metro2 Solutions Platform · Maryland</div>
+      <p>Your FICO Foundation. Built for Capital. Compliance-first, Metro2-powered credit consulting.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+14434591950">(443) 459-1950</a></li>
+        <li><a href="sms:+14434591950?body=Hi%2C%20I%27d%20like%20to%20speak%20with%20a%20consultant%20about%20my%20credit%20profile%20and%20funding%20goals.%20Can%20we%20schedule%20a%20time%20to%20connect%3F">Connect with a Consultant</a></li>
+        <li><a href="sms:+14434591950?body=Hi%2C%20I%27m%20ready%20to%20move%20forward%20with%20consulting%20services.%20Please%20send%20me%20an%20invoice%20so%20I%20can%20get%20started.">Pay via Invoice</a></li>
+        <li><a href="#story">Maryland, USA</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#products">Standard Program — $400</a></li>
+        <li><a href="#products">Complex Program — $800</a></li>
+        <li><a href="#business-credit">Business Credit Prep</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#payment">Payment Options</a></li>
+        <li><a href="#benefits">Why Choose Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="foot-disc">
+    <strong>Disclaimer:</strong> This is a credit consulting service. We utilize the Metro2 Solutions Platform to ensure reporting accuracy. We are not a law firm and do not provide legal advice. Results are based on individual bureau and furnisher compliance and may vary. Most remediation is completed within 90–120 days of the start of the 5-month consulting term. Flat-rate pricing tier is determined after a profile review. All payments are non-refundable once services have commenced. © 2025 Credit Consulting. All rights reserved.
+  </p>
+</footer>
+
+<script>
+(function(){
+  const els=document.querySelectorAll('.ben-card,.prod-card,.step-c,.s2c,.test-card');
+  if(!window.IntersectionObserver)return;
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.style.animation='fadeUp 0.55s ease both';io.unobserve(e.target)}
+    });
+  },{threshold:.08});
+  els.forEach(el=>{el.style.opacity='0';io.observe(el)});
+})();
+(function(){
+  const h=document.getElementById('header');
+  window.addEventListener('scroll',()=>{
+    h.style.boxShadow=window.scrollY>60?'0 4px 24px rgba(0,0,0,.35)':'none';
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
